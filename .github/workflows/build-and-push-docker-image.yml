@@ -1,6 +1,5 @@
 name: Create and publish a Docker image
 
-
 on:
   push:
     branches: [ "main" ]
@@ -8,6 +7,8 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+  DOCKER_HUB_NAMESPACE: ${{ secrets.DOCKER_USERNAME }}
+  DOCKER_HUB_REPOSITORY: ${{ github.repository }}
 
 jobs:
 
@@ -55,7 +56,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.DOCKER_HUB_NAMESPACE }}/${{ env.DOCKER_HUB_REPOSITORY }}
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
