@@ -8,7 +8,7 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
   DOCKER_HUB_NAMESPACE: jabbes
-  DOCKER_HUB_REPOSITORY: ${{ github.repository }}
+  DOCKER_HUB_REPOSITORY: iptv-org-epg
 
 jobs:
 
