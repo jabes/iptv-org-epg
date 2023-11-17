@@ -7,7 +7,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  DOCKER_HUB_NAMESPACE: ${{ secrets.DOCKER_USERNAME }}
+  DOCKER_HUB_NAMESPACE: jabbes
   DOCKER_HUB_REPOSITORY: ${{ github.repository }}
 
 jobs:
