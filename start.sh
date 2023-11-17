@@ -1,6 +1,7 @@
 #!/bin/bash
 
-export SITE="flixed.io"
+# https://github.com/iptv-org/epg/blob/master/SITES.md
+export SITE="tvguide.com"
 export LANG="en"
 
 npm --prefix /opt/iptv-org/epg run grab -- --site="${SITE}" --lang="${LANG}" &&
