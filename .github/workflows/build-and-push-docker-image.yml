@@ -1,4 +1,4 @@
-name: Create and publish a Docker image
+name: Build & Publish Docker Image
 
 on:
   push:
@@ -7,13 +7,13 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  DOCKER_HUB_NAMESPACE: jabbes
-  DOCKER_HUB_REPOSITORY: iptv-org-epg
+  DOCKER_HUB_NAMESPACE: ${{ secrets.DOCKER_USERNAME }}
+  DOCKER_HUB_REPOSITORY: ${{ github.repository }}
 
 jobs:
 
   build-and-push-ghcr:
-    name: Push Docker image to GitHub Container Registry
+    name: Publish to GitHub Container Registry
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -42,7 +42,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
   build-and-push-docker-hub:
-    name: Push Docker image to Docker Hub
+    name: Publish to Docker Hub
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
